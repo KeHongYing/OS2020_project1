@@ -1,6 +1,16 @@
 # OS 2020 SPRING Project1
 **B06902074 KeHongYing**
 
+## Environment
+
+OS: $Ubuntu 16.04$
+
+GCC version: $5.4.0$
+
+cmake version: $3.5.1$(minimum required: 3.5)
+
+python version: 3.5.2(for checking script, not necessary)
+
 ## Usage
 ```powersell
 # Generate the Makefile
@@ -14,14 +24,22 @@ sudo ./project_1 < <INPUT FILE>
 ```
 
 ## How to use the script
-1. Run `sudo dmesg -c` to clean the log first.
-2. Run the main code
 ```powershell
-# For single test data
+# install the require package
+sudo pip3 install numpy
+
+# clean the dmesg log
+sudo dmesg -c
+
+# For sigle test data
 sudo ./project_1 < <INPUT FILE> > <OUTPUT FILE>
 
-#For all test data
-sudo python run.py <INPUT FILE DIRECTORY>
+# For all test data, output will be save in output/
+sudo python3 run.py <INPUT FILE DIRECTORY>
+
+# To check each process time for sigle file
+dmesg | grep Project1 check_time.py
+
+# To check correctness, prepare a correct answer
+python3 check_order.py <OUTPUT FILE DIRECTORY> <ANSWER FILE DIRECTORY>
 ```
-3. For single test data, you can run `dmesg | python check_time.py` to check each process running time.
-4. For all output file(\*stdout.txt and \*dmesg.txt), you can run `python check_order.py <output> <ANSWER FILE DIRECTORY>` to check.

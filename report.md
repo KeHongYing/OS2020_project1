@@ -10,10 +10,13 @@ GCC version: $5.4.0$
 
 cmake version: $3.5.1$(minimum required: 3.5)
 
+python version: 3.5.2(for checking script, not necessary)
+
 Virtual Hardware:
 
-1. $8GB$ RAM
-2. $6$ Threads($Host$: $i7\text{-}8750H$, 6 Cores, 12 Threads)
+- $8GB$ RAM
+
+- $6$ Threads($Host$: $i7\text{-}8750H$, 6 Cores, 12 Threads)
 
 I use cmake generator to generate the $Makefile$, it might can't run on other machine. If you want to compile by `make`. Please run `cmake .` first to get the newest $Makefile$. How to run is described in $Readme$.
 
@@ -38,6 +41,10 @@ I use cmake generator to generate the $Makefile$, it might can't run on other ma
 ## Kernel Version
 
 &emsp; I use $Linux\ 4.14.25$, which is same to $HW1$ and provided by the TA.
+
+<div style="page-break-after: always;"></div>
+
+
 
 ## Experience
 
@@ -77,34 +84,34 @@ I use cmake generator to generate the $Makefile$, it might can't run on other ma
 
 ```powershell
 #FIFO_3.txt
-				theoretical									experience
-	start_time  finish_time  exec_time			start_time  finish_time  exec_time
-P1  	 0		  10.432	  10.432				 0		  10.680	   10.680		
-P2	  10.432	  16.952	   6.520			  10.713	  17.365	    6.652
-P3	  16.952	  20.864	   3.912			  17.384	  21.361	    3.976
-P4	  20.864	  22.168	   1.304			  21.376	  22.703		1.327
-P5    22.168	  23.472	   1.304			  22.707	  24.042		1.334
-P6	  23.472	  24.776	   1.304			  24.044	  25.377		1.333
-P7    24.776	  29.992	   5.216			  25.385	  30.723	    5.337
+           theoretical			             experience
+    start    finish    exec	          start    finish    exec
+P1    0		 10.432   10.432	        0      10.680   10.680		
+P2	10.432	 16.952    6.520	      10.713   17.365    6.652
+P3	16.952	 20.864	   3.912	      17.384   21.361    3.976
+P4	20.864	 22.168	   1.304	      21.376   22.703    1.327
+P5  22.168	 23.472	   1.304	      22.707   24.042    1.334
+P6	23.472	 24.776    1.304	      24.044   25.377    1.333
+P7  24.776	 29.992    5.216	      25.385   30.723    5.337
 
 #RR_4.txt
-				theoretical									experience
-	start_time  finish_time  exec_time			start_time  finish_time  exec_time
-P1  	 0		  29.992	  29.992				 0		  30.744	   30.744		
-P2	   0.652	  26.080	  25.428			   0.659	  26.834	   26.175
-P3	   1.304	  18.908	  17.604			   1.309	  19.483	   18.174
-P4	   1.956	   7.172	   5.216			   1.958	   7.519		5.562
-P5     3.260	   8.476	   5.216			   3.260	   8.821		5.561
-P6	   3.912	   9.128	   5.216			   3.909	   9.472		5.563
-P7     4.564	  24.123	  19.559			   4.917	  24.885	   19.968
+           theoretical                       experience
+    start    finish    exec           start    finish    exec
+P1    0      29.992	  29.992            0      30.744   30.744		
+P2   0.652   26.080	  25.428           0.659   26.834   26.175
+P3   1.304   18.908	  17.604           1.309   19.483   18.174
+P4   1.956    7.172	   5.216           1.958    7.519    5.562
+P5   3.260    8.476	   5.216           3.260    8.821    5.561
+P6   3.912    9.128	   5.216           3.909    9.472    5.563
+P7   4.564   24.123	  19.559           4.917   24.885   19.968
 
 #PSJF_1.txt
-				theoretical									experience
-	start_time  finish_time  exec_time			start_time  finish_time  exec_time
-P1  	 0		  32.600	  32.600				 0		  33.192	   33.192		
-P2	   1.304	  20.864	  19.560			   1.314	  21.197	   19.883
-P3	   2.608	  13.040	  10.432			   2.723	  13.210	   10.487
-P4	   3.912	   7.824	   3.912			   4.057	   7.990	    3.933
+           theoretical                       experience
+    start    finish    exec           start    finish    exec
+P1    0      32.600   32.600            0      33.192   33.192		
+P2   1.304   20.864   19.560           1.314   21.197   19.883
+P3   2.608   13.040   10.432           2.723   13.210   10.487
+P4   3.912    7.824    3.912           4.057    7.990    3.933
 ```
 
 &emsp; We can notice that theoretical time usually faster than real time. The reason is in real world, there is lots of thing need to do. Besides the formal job, the process need to run lots of thing to check who ready, when to switch, waiting child process return, and so on. And this two policy will do lots of context switch, so the loading will be more heavy. Moreover, lots of system process will preempt the resource and these time will be counted in.
