@@ -58,6 +58,7 @@ void context_switch(Queue **head, Queue **running)
 	(*running) = pop(head);
 	if((*running) != NULL)
 		wakeup((*running) -> pid);
+	//fprintf(stderr, "switch to %s\n", (*running) -> name);
 	
 	return;
 }
@@ -71,8 +72,8 @@ void scheduling(Process *proc, const int nproc, const int policy)
 	for(int i = 0; i < nproc; i ++)
 		proc[i].pid = -1;
 
-	assign(getpid(), PARENT_CPU);
 	wakeup(getpid());
+	assign(getpid(), PARENT_CPU);
 
 	Queue *pq = NULL;
 	Queue *running = NULL;

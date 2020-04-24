@@ -40,7 +40,6 @@ pid_t execute(Process proc)
 		err_sys("fork error");
 
 	if(pid == 0){
-		block(getpid());
 		unsigned long start_sec, start_nsec, end_sec, end_nsec;
 		char dmesg[512];
 		syscall(GET_TIME, &start_sec, &start_nsec);
@@ -54,25 +53,26 @@ pid_t execute(Process proc)
 
 		exit(0);
 	}
-
+	block(pid);
 	return pid;
 }
 
 void block(const pid_t pid)
 {
-	assign(pid, PARENT_CPU);
 	struct sched_param parm;
 	parm.sched_priority = 1;
 
 	if(sched_setscheduler(pid, SCHED_FIFO, &parm) < 0)
 		err_sys("set scheduler error");
-	
+
+	assign(pid, PARENT_CPU);	
 	return;
 }
 
 void wakeup(const pid_t pid)
 {
 	assign(pid, CHILD_CPU);
+	
 	struct sched_param parm;
 	parm.sched_priority = 99;
 
