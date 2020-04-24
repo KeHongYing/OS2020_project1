@@ -58,8 +58,6 @@ void context_switch(Queue **head, Queue **running)
 	(*running) = pop(head);
 	if((*running) != NULL)
 		wakeup((*running) -> pid);
-
-	fprintf(stderr, "switch to %s pid %d\n", (*running) -> name, (*running) -> pid);
 	
 	return;
 }

@@ -49,18 +49,18 @@ pid_t execute(Process proc)
 
 		syscall(GET_TIME, &end_sec, &end_nsec);
 		//fprintf(stderr, "[project1] %d %lu.%09lu %lu.%09lu\n", getpid(), start_sec, start_nsec, end_sec, end_nsec);
-		sprintf(dmesg, "[project1] %d %lu.%09lu %lu.%09lu", getpid(), start_sec, start_nsec, end_sec, end_nsec);
+		sprintf(dmesg, "[Project1] %d %lu.%09lu %lu.%09lu", getpid(), start_sec, start_nsec, end_sec, end_nsec);
 		syscall(PRINTK, dmesg);
 
 		exit(0);
 	}
 
-	assign(pid, CHILD_CPU);
 	return pid;
 }
 
 void block(const pid_t pid)
 {
+	assign(pid, PARENT_CPU);
 	struct sched_param parm;
 	parm.sched_priority = 1;
 
@@ -72,6 +72,7 @@ void block(const pid_t pid)
 
 void wakeup(const pid_t pid)
 {
+	assign(pid, CHILD_CPU);
 	struct sched_param parm;
 	parm.sched_priority = 99;
 
