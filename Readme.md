@@ -8,7 +8,7 @@
 - python version: 3.5.2(for checking script, not necessary)
 
 ## Usage
-```powersell
+```powershell
 # Generate the Makefile
 cmake .
 
