@@ -2,14 +2,10 @@
 **B06902074 KeHongYing**
 
 ## Environment
-
-OS: $Ubuntu 16.04$
-
-GCC version: $5.4.0$
-
-cmake version: $3.5.1$(minimum required: 3.5)
-
-python version: 3.5.2(for checking script, not necessary)
+- OS: Ubuntu 16.04
+- GCC version: 5.4.0
+- cmake version: 3.5.1(minimum required: 3.5)
+- python version: 3.5.2(for checking script, not necessary)
 
 ## Usage
 ```powersell
