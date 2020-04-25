@@ -5,7 +5,6 @@
 
 #define PARENT_CPU 0
 #define CHILD_CPU 1
-//#define UNIT_TIME(N) { for(int n = 0; n < N; n ++) for(volatile unsigned long i = 0; i < 1000000UL; i ++); }
 
 typedef struct{
 	char name[32];

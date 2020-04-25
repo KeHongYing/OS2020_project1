@@ -11,7 +11,7 @@ Queue *newQueue(const int remain_time, const double priority, const int policy, 
 	temp -> priority = priority;
 	temp -> next = NULL;
 	temp -> policy = policy;
-	temp -> available_time = (policy == RR && remain_time > 500) ? 500 : remain_time;
+	temp -> available_time = (policy == RR && remain_time > TIME_QUANTUM) ? TIME_QUANTUM : remain_time;
 	temp -> pid = pid;
 	strcpy(temp -> name, name);
 

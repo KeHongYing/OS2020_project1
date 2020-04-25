@@ -111,7 +111,7 @@ void scheduling(Process *proc, const int nproc, const int policy)
 			if(running -> available_time == 0){
 				if(running -> remain_time != 0){ //RR timeout but haven't finish
 					if(pq == NULL)
-						running -> available_time = (running -> remain_time > 500) ? 500 : running -> remain_time;
+						running -> available_time = (running -> remain_time > TIME_QUANTUM) ? TIME_QUANTUM : running -> remain_time;
 					else
 						context_switch(&pq, &running);
 				}

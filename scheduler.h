@@ -7,8 +7,6 @@
 #define RR 1
 #define SJF 2
 #define PSJF 3
-#define GET_TIME 314
-#define PRINK 315
 #define TIME_QUANTUM 500
 
 // Check which policy
