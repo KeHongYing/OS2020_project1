@@ -38,6 +38,8 @@ I use cmake generator to generate the $Makefile$, it might can't run on other ma
 
 &emsp; I use two cores to run $Parent$ and $Child\ process$ respectively. If we only use one, $Child\ process$ might be preempted by $Parent\ process$. This will cause the running time incorrect. So we need two cores to run them respectively. In $Parent$'s core, $main$'s $CPU\ priority$ is the highest to make sure it will be scheduled most frequently. When a process ready, It will be $fork()$ and $block$ immediately. When a process is $blocked$, it will be $assign$ to $Parent$'s core and reduce the $CPU\ priority$ to 1, which is much smaller than $main$. If it is its turn to run, it will be $assign$ to $Child$'s core and run. At the begin, $Child\ process$ is always in the $Child$'s core, there is a problem: in some time period, all of process in $Child\ process$ are blocked, which means they have the same $CPU\ priority$, some of them will be scheduled to run but it can't in fact. So in my method, all of blocked process will be placed in the $Parent$'s core, and all of them will not be scheduled because their $CPU\ priority$ is significant lower than $main$. 
 
+&emsp; Even I use the above method to avoid child run in wrong time, I notice that some of them will sneak sometimes. This will cause they get the start time too early and the execution time we computed would be too long. So I set a new $while$ loop to check whether its $CPU\ priority$ has been rise or not. If not, it means that the process sneak and beacause parent hasn't let it run. It will be blocked in the loop until it wake up and rise the priority.
+
 ## Kernel Version
 
 &emsp; I use $Linux\ 4.14.25$, which is same to $HW1$ and provided by the TA.
@@ -120,4 +122,4 @@ P4   3.912    7.824    3.912           4.057    7.990    3.933
 
 &emsp; We can also find that $FIFO$'s has the smallest error because its loading is the lightest. It don't need to recompute the priority and don't need to context switch frequently. In contrast, $RR$ and $PSJF$ need to switch more frequently and need to do float compute.
 
-&emsp; By this compare, It seems that my implement is not bad. Most of error are within $1s$. 
+&emsp; By this compare, It seems that my implement is not bad. I've run a script to check my time difference to the ideal time. Only one of test data error are exceed $10\%(\text{theoretical is }0.652\text{ and real is }0.892)$.
