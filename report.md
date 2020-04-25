@@ -42,6 +42,8 @@ I use cmake generator to generate the $Makefile$, it might can't run on other ma
 
 &emsp; I use $Linux\ 4.14.25$, which is same to $HW1$ and provided by the TA.
 
+![](/home/kehongying/Pictures/Screenshot_20200425_152540.png) 
+
 <div style="page-break-after: always;"></div>
 
 
