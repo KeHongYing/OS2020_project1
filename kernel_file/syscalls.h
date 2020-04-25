@@ -942,6 +942,6 @@ asmlinkage long sys_statx(int dfd, const char __user *path, unsigned flags,
 			  unsigned mask, struct statx __user *buffer);
 
 asmlinkage int sys_my_add(int a, int b);
-asmlinkage int sys_my_gettime(unsigned long long *sec, unsigned long long *nsec);
-asmlinkage int sys_my_printk(char *messenge);
+asmlinkage void sys_my_gettime(unsigned long long *sec, unsigned long long *nsec);
+asmlinkage void sys_my_printk(char *messenge);
 #endif
