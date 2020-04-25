@@ -1,7 +1,15 @@
 import sys
 import numpy as np
 
-time_log = np.array([lines.split("[Project1] ")[1].split()[1:] for lines in sys.stdin.readlines()]).astype(np.float)
+line = sys.stdin
+
+try:
+	# for dmesg rediirect
+	time_log = np.array([lines.split("[Project1] ")[1].split()[1:] for lines in line]).astype(np.float)
+except:
+	# for *_dmesg.txt
+	time_log = np.array([lines.split("[Project1] ")[0].split()[1:] for lines in line]).astype(np.float)
+
 time = list(map(lambda x: float(x[1]) - float(x[0]), time_log))
 time_log -= np.min(time_log)
 

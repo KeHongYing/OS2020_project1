@@ -4,9 +4,6 @@ import numpy as np
 
 path = sys.argv[1]
 
-if not os.path.exists("./output"):
-	os.mkdir("./output")
-
 for f in os.listdir(path):
 	print(f)
 	os.system("dmesg -c")
@@ -19,4 +16,4 @@ for f in os.listdir(path):
 	os.system("dmesg | grep Project1 > kernel_log")
 	with open(os.path.join("output", dmesg_file), "w") as log_file:
 		for i in np.genfromtxt("kernel_log", dtype = np.str, delimiter = "[Project1] ")[:, 1]:
-			log_file.write("[Projec1] " + i + "\n")
+			log_file.write("[Project1] " + i + "\n")
