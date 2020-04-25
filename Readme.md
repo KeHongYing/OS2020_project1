@@ -34,7 +34,10 @@ sudo ./project_1 < <INPUT FILE> > <OUTPUT FILE>
 sudo python3 run.py <INPUT FILE DIRECTORY>
 
 # To check each process time for sigle file
-dmesg | grep Project1 check_time.py
+dmesg | grep Project1 python3 check_time.py
+
+# Or
+python3 check_time.py < <dmesg FILE>
 
 # To check correctness, prepare a correct answer
 python3 check_order.py <OUTPUT FILE DIRECTORY> <ANSWER FILE DIRECTORY>
