@@ -42,6 +42,16 @@ pid_t execute(Process proc)
 	if(pid == 0){
 		unsigned long start_sec, start_nsec, end_sec, end_nsec;
 		char dmesg[512];
+
+		struct sched_param parm;
+		while(1){
+			if(sched_getparam(getpid(), &parm) < 0)
+				err_sys("get parm error");
+
+			if(parm.sched_priority == 99)
+				break;
+		}
+
 		syscall(GET_TIME, &start_sec, &start_nsec);
 
 		UNIT_TIME(proc.exec_time);
