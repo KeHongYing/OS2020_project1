@@ -2,10 +2,6 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
-#include <errno.h>
-#include <unistd.h>
-#include <sched.h>
 #include "process.h"
 #include "scheduler.h"
 
