@@ -122,4 +122,4 @@ P4   3.912    7.824    3.912           4.057    7.990    3.933
 
 &emsp; We can also find that $FIFO$'s has the smallest error because its loading is the lightest. It don't need to recompute the priority and don't need to context switch frequently. In contrast, $RR$ and $PSJF$ need to switch more frequently and need to do float compute.
 
-&emsp; By this compare, It seems that my implement is not bad. I've run a script to check my time difference to the ideal time. Only one of test data error are exceed $10\%(\text{theoretical is }0.652\text{ and real is }0.892)$.
+&emsp; By this compare, It seems that my implement is not bad. I've run a script to check my time difference to the ideal time. The average time error is about $2\%$, and the maximum error isn't exceed $10\%$.
