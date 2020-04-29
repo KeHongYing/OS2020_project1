@@ -33,7 +33,7 @@ sudo ./project_1 < <INPUT FILE> > <OUTPUT FILE>
 # For all test data, output will be save in output/
 sudo python3 run.py <INPUT FILE DIRECTORY>
 
-# To check each process time for sigle file
+# To check each process time for single file
 dmesg | grep Project1 python3 check_time.py
 
 # Or
