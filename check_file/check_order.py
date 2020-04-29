@@ -13,7 +13,7 @@ for name in file_name:
 		
 		if np.any(dmesg1 != dmesg2):
 			print("%s dmesg is different"%name)
-			print(dmesg, dmesg1)
+			print(dmesg1, dmesg2)
 
 	if "stdout" in name:
 		file1 = np.genfromtxt(os.path.join(folder_1, name), dtype = np.str, delimiter = " ")[:, 0]
