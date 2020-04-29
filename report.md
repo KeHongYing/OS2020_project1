@@ -10,13 +10,13 @@ GCC version: $5.4.0$
 
 cmake version: $3.5.1$(minimum required: 2.8)
 
-python version: 3.5.2(for checking script, not necessary)
+python version: $3.5.2$(for checking script, not necessary)
 
 Virtual Hardware:
 
 - $8GB$ RAM
 
-- $6$ Threads($Host$: $i7\text{-}8750H$, 6 Cores, 12 Threads)
+- $6$ Processors($Host$: $i7\text{-}8750H$, 6 Cores, 12 Threads)
 
 I use cmake generator to generate the $Makefile$, it might can't run on other machine. If you want to compile by `make`. Please run `cmake .` first to get the newest $Makefile$. How to run is described in $Readme$.
 

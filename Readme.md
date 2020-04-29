@@ -27,7 +27,7 @@ sudo pip3 install -r requirement.txt
 # clean the dmesg log
 sudo dmesg -c
 
-# For sigle test data
+# For single test data
 sudo ./project_1 < <INPUT FILE> > <OUTPUT FILE>
 
 # For all test data, output will be save in output/

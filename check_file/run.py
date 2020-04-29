@@ -4,6 +4,9 @@ import numpy as np
 
 path = sys.argv[1]
 
+if not os.path.exists("./output"):
+	os.mkdir("./output")
+
 for f in os.listdir(path):
 	print(f)
 	os.system("dmesg -c")
